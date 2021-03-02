@@ -7,14 +7,14 @@ typedef struct _ArrayList {
 	int count;
 } ArrayList;
 
-// Add data at index in arraylist
+// Add data to index in array list
 void AddData(ArrayList* list, int data, int index) {
 	if(list->count >= MAX_LIST_SIZE) {	// overflow check
 		printf("List is full\n");
 		return;
 	}
 	if(list->count < index) {	// index validation check - Empty indexs not allowed in the middle of the arraylist
-		printf("wrong index\n");
+		printf("Wrong index\n");
 		return;
 	}
 	for(int i = list->count - 1; i >= index; i--) {
@@ -25,14 +25,14 @@ void AddData(ArrayList* list, int data, int index) {
 	return;
 }
 
-// Remove data at index in arraylist
+// Remove data from index from array list
 void RemoveData(ArrayList* list, int index) {
 	if(list->count <= 0) {	// underflow check
 		printf("List is empty\n");
 		return;
 	}
 	if(list->count <= index) {	// index validation check
-		printf("wrong index\n");
+		printf("Wrong index\n");
 		return;
 	}
 	for(int i = index; i < list->count - 1; i++) {
@@ -42,7 +42,7 @@ void RemoveData(ArrayList* list, int index) {
 	return;
 }
 
-// Print all data in arraylist
+// Print all data from array list
 void PrintAll(ArrayList* list) {
 	if(list->count <= 0) {
 		printf("List is empty\n");
