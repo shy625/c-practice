@@ -17,20 +17,15 @@ void AddData(Node* head, int data) {
 
 // Remove data from singly linked list
 void RemoveData(Node* head, int data) {
-	if(head->next == NULL) {
+	if(head->next == NULL) {	// underflow check
 		printf("List is empty\n");
 		return;
 	}
 	Node* cur = head->next;
-	Node* prev;
+	Node* prev = head;
 	while(cur != NULL) {
 		if(cur->data == data) {
-			if(cur == head->next) {
-				head->next = cur->next;
-			}
-			else {
-				prev->next = cur->next;
-			}
+			prev->next = cur->next;
 			free(cur);
 			return;
 		}
@@ -43,7 +38,7 @@ void RemoveData(Node* head, int data) {
 
 // Print all data from singly linked list
 void PrintAll(Node* head) {
-	if(head->next == NULL) {
+	if(head->next == NULL) {	// underflow check
 		printf("List is empty\n");
 		return;
 	}
@@ -62,11 +57,12 @@ void PrintAll(Node* head) {
 void FreeAll(Node* head) {
 	Node* cur = head->next;
 	Node* next;
-	while(cur != NULL) {
+	while(cur != NULL) {	// free all nodes
 		next = cur->next;
 		free(cur);
 		cur = next;
 	}
+	//initialize the list
 	head->next = NULL;
 	// Q. 모든 노드 free 처리했는데 왜 각 포인터는 그대로 연결되어 있는가? 모든 노드 free 처리한 뒤, 따로 head->next = NULL 하지 않고 AddData 해서 PrintAll 했을 때 왜 넣지도 않은 값들이 주루룩 뜨는지?
 	// A. 각 메모리들을 free 처리해서 각 포인터가 가리키는 주소는 달라졌지만 연결 자체는 그대로?
