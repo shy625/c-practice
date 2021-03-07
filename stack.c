@@ -1,3 +1,6 @@
+
+// stack as a linked list
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
@@ -16,7 +19,7 @@ typedef struct _Stack {
 // Check whether stack is empty or not
 bool isEmpty(Stack* stack) {
 	if(stack->top == NULL) return true;
-	else return false;
+	return false;
 }
 
 // Push data to top of the stack
@@ -85,3 +88,89 @@ int main(void)
 
 	return 0;
 }
+
+/*--------------------------------
+// stack as an array
+
+#include <stdio.h>
+#include <stdbool.h>
+
+#define MAX_STACK_SIZE 100
+#define INF 999999999
+
+typedef struct _Stack {
+	int data[MAX_STACK_SIZE];
+	int top;
+} Stack;
+
+bool isEmpty(Stack* stack) {
+	if(stack->top < 0) return true;
+	return false;
+}
+
+bool isFull(Stack* stack) {
+	if(stack->top >= MAX_STACK_SIZE) return true;
+	return false;
+}
+
+void Push(Stack* stack, int data) {
+	if(isFull(stack)) {
+		printf("Stack is full\n");
+		return;
+	}
+	stack->data[++stack->top] = data;
+	return;
+}
+
+void Pop(Stack* stack) {
+	if(isEmpty(stack)) {
+		printf("Stack is empty\n");
+		return;
+	}
+	stack->top--;
+	return;
+}
+
+int GetTop(Stack* stack) {
+	if(isEmpty(stack)) {
+		printf("Stack is empty\n");
+		return -INF;
+	}
+	return stack->data[stack->top];
+}
+
+void PrintStack(Stack* stack) {
+	if(isEmpty(stack)) {
+		printf("Stack is empty\n");
+		return;
+	}
+	printf("TOP\n");
+	for(int i = stack->top; i >= 0; i--) {
+		printf("| %d\n", stack->data[i]);
+	}
+	return;
+}
+
+int main(void)
+{
+	Stack stack;
+	stack.top = -1;
+	
+	Pop(&stack);
+	Push(&stack, 0);
+	Push(&stack, 2);
+	Push(&stack, 4);
+	PrintStack(&stack);
+	printf("TOP = %d\n", GetTop(&stack));
+	Pop(&stack);
+	Pop(&stack);
+	Push(&stack, 6);
+	PrintStack(&stack);
+	printf("TOP = %d\n", GetTop(&stack));
+	Pop(&stack);
+	Pop(&stack);
+	printf("TOP = %d\n", GetTop(&stack));
+	
+	return 0;
+}
+--------------------------------*/
