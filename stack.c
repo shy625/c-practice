@@ -1,4 +1,4 @@
-
+// /*
 // stack as a linked list
 
 #include <stdio.h>
@@ -88,8 +88,10 @@ int main(void)
 
 	return 0;
 }
+// */
 
-/*--------------------------------
+
+/*
 // stack as an array
 
 #include <stdio.h>
@@ -103,18 +105,21 @@ typedef struct _Stack {
 	int top;
 } Stack;
 
+// Check whether stack is empty or not
 bool isEmpty(Stack* stack) {
 	if(stack->top < 0) return true;
 	return false;
 }
 
+// Check whether stack is full or not
 bool isFull(Stack* stack) {
 	if(stack->top >= MAX_STACK_SIZE) return true;
 	return false;
 }
 
+// Push data to top of the stack
 void Push(Stack* stack, int data) {
-	if(isFull(stack)) {
+	if(isFull(stack)) {	// add more space to array or move data to front index of the array
 		printf("Stack is full\n");
 		return;
 	}
@@ -122,6 +127,7 @@ void Push(Stack* stack, int data) {
 	return;
 }
 
+// Pop data from top of the stack
 void Pop(Stack* stack) {
 	if(isEmpty(stack)) {
 		printf("Stack is empty\n");
@@ -131,6 +137,7 @@ void Pop(Stack* stack) {
 	return;
 }
 
+// Get data from top of the stack
 int GetTop(Stack* stack) {
 	if(isEmpty(stack)) {
 		printf("Stack is empty\n");
@@ -139,6 +146,7 @@ int GetTop(Stack* stack) {
 	return stack->data[stack->top];
 }
 
+// Printf all data in stack
 void PrintStack(Stack* stack) {
 	if(isEmpty(stack)) {
 		printf("Stack is empty\n");
@@ -173,4 +181,4 @@ int main(void)
 	
 	return 0;
 }
---------------------------------*/
+*/
